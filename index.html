@@ -323,39 +323,22 @@
       <div class="project-grid">
         <div class="project-media">
           <figure>
-            <div class="diagram" role="img" aria-label="Diagram of a five-stage RISC-V pipeline: instruction fetch, decode, execute, memory and write-back, with hazard detection and branch prediction">
+            <div class="diagram" role="img" aria-label="Diagram of a pipelined RISC-V CPU with hazard detection and handling and branch prediction, tested with RISC-V assembly programs">
               <svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-                    <path d="M0,0 L10,5 L0,10 z" fill="#c24e1e"></path>
-                  </marker>
-                </defs>
-                <rect class="stage-box" x="8" y="105" width="92" height="64" rx="6"></rect>
-                <rect class="stage-box" x="122" y="105" width="92" height="64" rx="6"></rect>
-                <rect class="stage-box" x="236" y="105" width="92" height="64" rx="6"></rect>
-                <rect class="stage-box" x="350" y="105" width="92" height="64" rx="6"></rect>
-                <rect class="stage-box" x="464" y="105" width="92" height="64" rx="6"></rect>
-                <text class="stage-txt" x="54" y="134">IF</text><text class="stage-sub" x="54" y="154">FETCH</text>
-                <text class="stage-txt" x="168" y="134">ID</text><text class="stage-sub" x="168" y="154">DECODE</text>
-                <text class="stage-txt" x="282" y="134">EX</text><text class="stage-sub" x="282" y="154">EXECUTE</text>
-                <text class="stage-txt" x="396" y="134">MEM</text><text class="stage-sub" x="396" y="154">MEMORY</text>
-                <text class="stage-txt" x="510" y="134">WB</text><text class="stage-sub" x="510" y="154">WRITE-BACK</text>
-                <path class="arrow" d="M102,137 L118,137"></path>
-                <path class="arrow" d="M216,137 L232,137"></path>
-                <path class="arrow" d="M330,137 L346,137"></path>
-                <path class="arrow" d="M444,137 L460,137"></path>
-                <path class="callout-line" d="M282,105 L282,52"></path>
-                <text class="callout" x="282" y="34" text-anchor="middle">HAZARD DETECTION &amp; HANDLING</text>
-                <text class="callout" x="282" y="50" text-anchor="middle" opacity=".75">stalls / forwarding keep instructions moving correctly</text>
-                <path class="callout-line" d="M54,169 L54,222"></path>
-                <text class="callout" x="10" y="244">BRANCH PREDICTION</text>
-                <text class="callout" x="10" y="262" opacity=".75">fewer stalls on branches</text>
-                <path class="callout-line" d="M470,169 L470,222"></path>
-                <text class="callout" x="470" y="244" text-anchor="middle">TESTED WITH RISC-V</text>
-                <text class="callout" x="470" y="262" text-anchor="middle" opacity=".75">assembly tests I wrote</text>
+                <rect class="stage-box" x="110" y="105" width="340" height="64" rx="6"></rect>
+                <text class="stage-txt" x="280" y="134">PIPELINED RISC-V CPU</text><text class="stage-sub" x="280" y="154">SYSTEMVERILOG RTL</text>
+                <path class="callout-line" d="M280,105 L280,52"></path>
+                <text class="callout" x="280" y="34" text-anchor="middle">HAZARD DETECTION &amp; HANDLING</text>
+                <text class="callout" x="280" y="50" text-anchor="middle" opacity=".75">keeps instructions moving correctly through the pipeline</text>
+                <path class="callout-line" d="M170,169 L170,222"></path>
+                <text class="callout" x="170" y="244" text-anchor="middle">BRANCH PREDICTION</text>
+                <text class="callout" x="170" y="262" text-anchor="middle" opacity=".75">fewer stalls on branches</text>
+                <path class="callout-line" d="M400,169 L400,222"></path>
+                <text class="callout" x="400" y="244" text-anchor="middle">TESTED WITH RISC-V</text>
+                <text class="callout" x="400" y="262" text-anchor="middle" opacity=".75">assembly tests I wrote</text>
               </svg>
             </div>
-            <figcaption><span>FIG. 03 — FIVE-STAGE PIPELINE, AS IMPLEMENTED</span><span>SystemVerilog</span></figcaption>
+            <figcaption><span>FIG. 03 — PIPELINED RISC-V CPU, AS IMPLEMENTED</span><span>SystemVerilog</span></figcaption>
           </figure>
         </div>
         <div class="project-body">
@@ -363,8 +346,7 @@
           <h3>Pipelined RISC-V CPU</h3>
           <p class="sub">RTL design in SystemVerilog — second course in a two-course computer architecture sequence</p>
           <p>
-            I designed and implemented a <strong>pipelined RISC-V CPU in SystemVerilog</strong> — the full
-            five-stage pipeline, fetch through write-back, as RTL.
+            I designed and implemented a <strong>pipelined RISC-V CPU in SystemVerilog</strong>, as RTL.
           </p>
           <ul>
             <li><strong>Hazard detection and handling</strong> so instructions move through the pipeline correctly when they depend on each other</li>
